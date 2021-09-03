@@ -6,6 +6,8 @@ services:
     volumes:
       - ./:/app
       - ./node_modules:/node_modules
+    args: 
+      - 'MONGO_CONNECTION=$MONGO_CONNECTION'
     environment: 
       MONGO_CONNECTION: '{"MONGO_CONNECTION":"mongodb+srv://victor:mZQCxSRX1cUqTTAt@cluster0.afhhe.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"}'
     ports:
