@@ -6,5 +6,7 @@ services:
     volumes:
       - ./:/app
       - ./node_modules:/node_modules
+    environment: 
+      - MONGO_CONNECTION=mongodb+srv://victor:mZQCxSRX1cUqTTAt@cluster0.afhhe.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
     ports:
       - 3000:3000

@@ -2,7 +2,7 @@ FROM node:14
 
 # Create app directory
 RUN mkdir -p /app
-ENV MONGO_CONNECTION=mongodb+srv://victor:mZQCxSRX1cUqTTAt@cluster0.afhhe.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+ENV MONGO_CONNECTION mongodb+srv://victor:mZQCxSRX1cUqTTAt@cluster0.afhhe.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 WORKDIR /app
 
 # Install app dependencies
