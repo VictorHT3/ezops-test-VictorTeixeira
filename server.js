@@ -4,7 +4,7 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var mongoose = require('mongoose');
-require('custom-env').env("dev");
+require('dotenv').config();
 
 app.use(express.static(__dirname));
 app.use(bodyParser.json());

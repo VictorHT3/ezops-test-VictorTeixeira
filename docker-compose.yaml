@@ -7,7 +7,9 @@ services:
     volumes:
       - .:/app
       - ./node_modules:/app/node_modules
+    environment: 
+      - MONGO_CONNECTION: "$MONGO_CONNECTION"
     env_file: 
-      - ./.env.dev
+      - .env
     ports:
       - 3000:3000
