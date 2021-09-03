@@ -25,5 +25,5 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
-            cd /home/app
+            cd /home/ec2-user/ezops-test-VictorTeixeira
             docker-compose up -d --build
