@@ -7,8 +7,8 @@ WORKDIR /usr/src/app
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
 
-COPY ./src/package*.json ./
-COPY ./src/.env ./
+COPY .package*.json ./
+COPY .env ./
 
 RUN npm install
 # If you are building your code for production
