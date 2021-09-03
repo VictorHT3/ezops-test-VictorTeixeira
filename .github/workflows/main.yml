@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Clone Repo GitHub
+        uses: actions/checkout@v2
       - name: Send code to my EC2 Instance
         uses: easingthemes/ssh-deploy@v2.1.5 
         env:
