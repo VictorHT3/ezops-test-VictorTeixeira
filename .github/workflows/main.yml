@@ -10,18 +10,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Deploy my EC2 Instance
-        uses: easingthemes/ssh-deploy@v2.1.5
-      - run: |
-          git pull origin master
-          docker-compose down
-          docker-compose up -d --build
-          echo teste >> teste.txt
-
-  
+      - name: Send code to my EC2 Instance
+        uses: easingthemes/ssh-deploy@v2.1.5 
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: "/home/ec2-user/ezops-test-VictorTeixeira"
           SOURCE: "./"
+      - name: Update docker container
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: docker-compose up -d --build
