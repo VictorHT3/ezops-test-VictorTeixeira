@@ -1,13 +1,13 @@
 version: '3'
-
 services:
   app:
     build: .
     command: npm start
     volumes:
+      - ./src/.env:/app/.env
       - ./src:/app
       - ./node_modules:/app/node_modules
-    environment:
-      MONGO_CONNECTION: "$MONGO_CONNECTION"
     ports:
       - 3000:3000
+    env_file:
+      - ./src/.env

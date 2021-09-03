@@ -16,7 +16,7 @@ var Message = mongoose.model('Message',{
 })
 
 
-var dbUrl = "mongodb+srv://victor:mZQCxSRX1cUqTTAt@cluster0.afhhe.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+var dbUrl = 'mongodb+srv://victor:mZQCxSRX1cUqTTAt@cluster0.afhhe.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 
 app.get('/messages', (req, res) => {
   Message.find({},(err, messages)=> {
