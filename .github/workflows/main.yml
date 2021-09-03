@@ -1,0 +1,23 @@
+name: Node CI
+
+on: 
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    name: Push to EC2 Instance
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Deploy my EC2 Instance
+        uses: easingthemes/ssh-deploy@v2.1.5
+  
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          TARGET: "/code/public/ezops-test-VictorTeixeira"
+          SOURCE: "./"
