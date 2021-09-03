@@ -4,7 +4,7 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var mongoose = require('mongoose');
-require('dotenv').config();
+require('custom-env').env("dev");
 
 app.use(express.static(__dirname));
 app.use(bodyParser.json());
@@ -16,7 +16,7 @@ var Message = mongoose.model('Message',{
 })
 
 
-var dbUrl = process.app-env.env.MONGO_CONNECTION
+var dbUrl = process.env.MONGO_CONNECTION
 
 app.get('/messages', (req, res) => {
   Message.find({},(err, messages)=> {
