@@ -4,10 +4,9 @@ services:
     build: .
     command: npm start
     volumes:
-      - ./src/.env:/app/.env
       - ./src:/app
       - ./node_modules:/app/node_modules
     ports:
       - 3000:3000
-    env_file:
-      - ./src/.env
+    environment:
+      - MONGO_CONNECT=mongodb+srv://victor:mZQCxSRX1cUqTTAt@cluster0.afhhe.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
