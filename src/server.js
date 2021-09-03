@@ -4,6 +4,7 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var mongoose = require('mongoose');
+require('dotenv').config();
 
 
 app.use(express.static(__dirname));
@@ -16,7 +17,7 @@ var Message = mongoose.model('Message',{
 })
 
 
-var dbUrl = 'mongodb+srv://victor:mZQCxSRX1cUqTTAt@cluster0.afhhe.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+var dbUrl = process.env.MONGO_CONNECTION
 
 app.get('/messages', (req, res) => {
   Message.find({},(err, messages)=> {
