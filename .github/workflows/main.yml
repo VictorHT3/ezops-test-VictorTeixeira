@@ -12,11 +12,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-      - name: Deploy my EC2 Instance
-        uses: easingthemes/ssh-deploy@v2.1.5
       - run: |
           git pull
           docker-compose down && docker-compose up -d
+      - name: Deploy my EC2 Instance
+        uses: easingthemes/ssh-deploy@v2.1.5
 
   
         env:
