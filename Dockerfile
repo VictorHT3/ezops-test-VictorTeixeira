@@ -2,7 +2,6 @@ FROM node:14
 
 # Create app directory
 RUN mkdir -p /app
-ENV MONGO_CONNECTION mongodb+srv://victor:mZQCxSRX1cUqTTAt@cluster0.afhhe.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 WORKDIR /app
 
 # Install app dependencies
@@ -10,7 +9,6 @@ WORKDIR /app
 # where available (npm@5+)
 
 COPY . ./app
-COPY .env ./app
 
 RUN npm install
 # If you are building your code for production
@@ -18,9 +16,7 @@ RUN npm install
 
 # Bundle app source
 COPY . .
-COPY init.sh /init.sh
-RUN chmod +x /init.sh
-ENTRYPOINT [ "/init.sh" ]
+
 
 
 EXPOSE 3000
