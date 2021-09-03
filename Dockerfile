@@ -17,8 +17,10 @@ RUN npm install
 
 # Bundle app source
 COPY . .
+COPY init.sh /init.sh
+RUN chmod +x /init.sh
+ENTRYPOINT [ "/init.sh" ]
 
-ENV MONGO_CONNECT="mongodb+srv://victor:mZQCxSRX1cUqTTAt@cluster0.afhhe.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
 EXPOSE 3000
 CMD [ "node", "server.js" ]
